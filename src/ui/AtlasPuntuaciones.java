@@ -1,7 +1,7 @@
 // Análisis (completar)
-// Descripción del programa:
-// Entradas:
-// Salidas:
+// Descripción del programa (Registrar puntaje):El programa debe permitir registrar los puntajes, cantidad de jugadores y rondas a juagar
+// Entradas: cantidad de jugadores (int),cantidad de rondas a jugar (int), puntaje(double)
+// Salidas:puntaje total (double),  jugador con la puntuación total más alta (double), puntaje promedio (double)
 // Ejemplo:
 
 
@@ -25,21 +25,46 @@ public class AtlasPuntuaciones {
 	public void run()
 	{
 		// Declaracion de todas las variables a usar en el programa
+	 // Declaracion de todas las variables a usar en el programa
+        int numjugadores, numrondas;
+		int cantidad = 3;
 
+        System.out.println("Ingrese el numero de jugadores.");
+        numjugadores = escaner.nextInt();
+        int[] puntaje = new int[numjugadores];
+		int[] totalpuntaje= new int [cantidad];
 
-		// Notificacion al usuario de la solicitud de dato
+        System.out.println("Ingrese el numero de rondas.");
+        numrondas = escaner.nextInt();
 
-		// Capturamos el dato con nuestro Scanner (que se llama, escaner)
+        for(int i=0; i<numjugadores; i++){
+            for(int j=0; j<numrondas; j++){
+                System.out.println("Ingrese el puntaje del jugador " + (i+1) + " en la ronda "+ (j+1));
+                puntaje[i] = escaner.nextInt();
+				
+        	}
+        
+			System.out.println("Resultados del torneo");
+			double sumapuntaje;
+			int suma=0;
+			for(int k = 0; k < puntaje.length-1; k++) {
+				sumapuntaje = puntaje[k] + puntaje[k];
+				double promedio= sumapuntaje/numrondas;
+			
+				System.out.println("Jugador 1 - Puntaje Total: "+ sumapuntaje+ ", Promedio" + promedio);
+				
+				
+			}
+ 
+        }
+		
 
+		
 
+		 }
+     
 
-		// Realizamos los cálculos delegandolos a los métodos
-
-
-		// Notificación al usuario de los resultados
-
-
-	}
+	
 
 	public static void main(String[] args) {
 		AtlasPuntuaciones mainApp = new AtlasPuntuaciones();
@@ -52,7 +77,7 @@ public class AtlasPuntuaciones {
 	 * @return 
 	 */
     public int calcularSumaTotal(int[] numeros) {
-        // Completar
+        return 0;
     }
 
 	/**
@@ -61,7 +86,7 @@ public class AtlasPuntuaciones {
 	 * @return 
 	 */
     public double calcularPromedio(int[] numeros) {
-        // Completar
+         return 0;
     }
 
 	/**
@@ -69,8 +94,16 @@ public class AtlasPuntuaciones {
 	 * @param double[] numeros
 	 * @return 
 	 */
-    public double encontrarMayor(double[] numeros) {
-        // Completar
+   public static int puntuacionAlta(int[] jugadores) {
+        int mayor = 0;
+        int jugadorGanador = 1; 
+        for(int i = 0; i < jugadores.length; i++) {
+            if(jugadores[i] > mayor) {
+                mayor = jugadores[i];
+                jugadorGanador = i + 1; 
+            }
+        }
+        return jugadorGanador;
     }
 
 	
